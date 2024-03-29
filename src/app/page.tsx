@@ -6,6 +6,9 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
+    <div className=" overflow-hidden  ">
+
+   
       <div>
         <h1 className="font-mono text-white text-4xl block mt-8 ml-8 mb-8">Omprakash Parewa</h1>
       </div>
@@ -30,9 +33,9 @@ export default function Home() {
         </p>
 
         <h1 className="text-white text-4xl mt-8 font-mono">You are here for...</h1>
-        <h2 className="text-white text-2xl mt-8 font-mono">I think you are here to get to know me. The best way is to start with my work.</h2>
+        <h2 className="text-white text-2xl mt-8 font-mono mr-8">I think you are here to get to know me. The best way is to start with my work.</h2>
 
-        <div className="win7 flex mt-8 cursor-default font-mono">
+        <div className="win7 flex mt-8 cursor-default font-mono flex-wrap">
           <Link className="cursor-default" target="_blank" href={"https://github.com/omprakash987"}>
             <button className="cursor-default p-3 pl-4 pr-4 m-4 font-mono">Github</button>
           </Link>
@@ -49,6 +52,8 @@ export default function Home() {
             <button className="cursor-default p-3 pl-4 pr-4 m-4 font-mono">Instagram</button>
           </Link>
         </div>
+      </div>
+
       </div>
     </>
   );
