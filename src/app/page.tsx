@@ -7,7 +7,7 @@ import axios from "axios";
 import { Victor_Mono } from "next/font/google";
 import "7.css/dist/7.css";
 import Link from "next/link";
-import { Batan } from "@/app/components/Batan";
+ 
 import User from "@/models/userModel";
 import { useEffect, useState } from "react";
 
@@ -72,25 +72,35 @@ export default function Home() {
           </h2>
 
           <div className="win7 flex mt-8 cursor-default font-mono flex-wrap">
-            <Batan name="Github" link="https://github.com/omprakash987" />
+           <div className="cursor-default m-2">
 
-            <Batan
-              name="Linkedin"
-              link="https://www.linkedin.com/in/omprakash-parewa-29815a257/"
-            />
-            <Batan
-              name="Youtube"
-              link="https://www.youtube.com/channel/UCaEMsY4tXuNSEh4iLYaB43Q"
-            />
+            <Link className=" cursor-default" href={"https://github.com/omprakash987"}>
+            <button className=" cursor-default">github</button>
+            </Link>
+          </div>
 
-            <Batan name="instagram" link="https://instagram.com/itz_om_2258" />
+           <div className="cursor-default m-2">
+            <Link href={"https://www.linkedin.com/in/omprakash-parewa-29815a257/"}>
+            <button className=" cursor-default">Linkedin</button>
+            </Link>
+          </div>
+           <div className="cursor-default  m-2">
+            <Link href={"https://www.youtube.com/channel/UCaEMsY4tXuNSEh4iLYaB43Q"}>
+            <button className=" cursor-default">Youtube</button>
 
-           
-    <Link href={"/project"}className="cursor-default">
-  <button className="cursor-default p-3 pl-4 pr-4 m-4 font-mono">Project</button>
+            </Link>
+          </div>
+           <div className="cursor-default m-2">
+            <Link href={"https://instagram.com/itz_om_2258"}>
+            <button className=" cursor-default">instagram</button>
 
-  </Link>
-
+            </Link>
+          </div>
+           <div className="cursor-default m-2">
+            <Link href={"/project"}>
+            <button className=" cursor-default">project</button>
+            </Link>
+          </div>
           </div>
         </div>
       </div>
