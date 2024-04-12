@@ -1,11 +1,26 @@
+"use client"
+
+
+
 import Image from "next/image";
+import axios from "axios";
 import { Victor_Mono } from "next/font/google";
 import "7.css/dist/7.css";
 import Link from "next/link";
 import { Batan } from "@/app/components/Batan";
+import User from "@/models/userModel";
+import { useEffect, useState } from "react";
 
 
-export default function Home() {
+
+
+
+export default function Home() { 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userData, setUserData] = useState<typeof User | null>(null);
+
+
+  
   return (
     <>
       <div className=" overflow-hidden  ">
@@ -13,11 +28,10 @@ export default function Home() {
           <h1 className="font-mono text-white text-4xl  mt-8 ml-8 mb-8 flex">
             Omprakash Parewa
           </h1>
-          <div className=" cursor-default">
-          <Batan
-          name = "signUp"
-          link = "/signup"
-          />
+        <div className="cursor-default">
+            <Link href={"/signup"}>
+            <button>signup</button>
+            </Link>
           </div>
             
 

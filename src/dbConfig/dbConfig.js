@@ -2,12 +2,11 @@
 
 import mongoose from 'mongoose'
 
-import User from '../models/userModel'
 
-export async function Connect(){
+export async function connect(){
     try{
 
-       await mongoose.connect(process.env.MONGODB_URI); 
+        mongoose.connect(process.env.MONGODB_URI); 
        const connection = mongoose.connection; 
 
        connection.on("connected",()=>{
@@ -16,19 +15,21 @@ export async function Connect(){
        })
 
        connection.on("error",(error)=>{
-        console.log("mongodb connection error")
+        console.log("mongodb connection error"+error)
         process.exit() ; 
 
 
        })
-; 
+
 
 
 
     }
-    catch(error)
+    catch(error){
+      console.log("somtihing went wrong")
 
-{
 
   console.log(error)
-}}
+}
+
+}
