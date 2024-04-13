@@ -1,8 +1,9 @@
 "use client"
 
+import React from "react";
+import { cn } from "@/app/utils/cn";
+import { Spotlight } from "@/app/components/ui/Spotlight";
 
-
-import Image from "next/image";
 import axios from "axios";
 import { Victor_Mono } from "next/font/google";
 import "7.css/dist/7.css";
@@ -12,7 +13,8 @@ import User from "@/models/userModel";
 import { useEffect, useState } from "react";
 
 import { useRouter } from "next/router";
-
+import Image from "next/image";
+import { CardBody, CardContainer, CardItem } from "@/app/components/ui/3d-card";
 
 
 
@@ -22,7 +24,13 @@ export default function Home() {
   
   return (
     <>
-      <div className=" overflow-hidden  ">
+    <div className=" overflow-hidden">
+
+<Spotlight
+        className="-top-40 left-0 md:left-60 md:-top-20"
+        fill="white"
+      />
+      <div className=" overflow-hidden  bg-black">
         <div className=" flex  justify-between ...">
           <h1 className="font-mono text-white text-4xl  mt-8 ml-8 mb-8 flex">
             Omprakash Parewa
@@ -37,13 +45,21 @@ export default function Home() {
         </div>
 
         <div>
-          <Image
+        <CardContainer className="">
+      <CardBody className=" ">
+        
+        <CardItem translateZ="100" className="">
+        <Image
             src="/Screenshot.png"
             alt="profile photo"
             width={150}
             height={150}
-            className="ml-8 border-2 border-white rounded-md mb-8"
+            className=" ml-28 border-2 border-white rounded-md mb-8"
           />
+        </CardItem>
+      
+      </CardBody>
+    </CardContainer>
         </div>
 
         <div className="ml-8 font-mono">
@@ -102,6 +118,7 @@ export default function Home() {
           </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );
