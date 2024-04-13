@@ -11,15 +11,14 @@ import Link from "next/link";
 import User from "@/models/userModel";
 import { useEffect, useState } from "react";
 
+import { useRouter } from "next/router";
 
 
 
 
 export default function Home() { 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userData, setUserData] = useState<typeof User | null>(null);
-
-
+  
+  
   
   return (
     <>
