@@ -22,24 +22,6 @@ import { TypewriterEffectSmooth } from '@/app/components/ui/typewriter-effect'
 
 
 export default function Home() { 
-  const [token, setToken] = useState("");
-
-
-  useEffect(() => {
-    const getToken = async () => {
-      try {
-        const response = await axios.post("/api/auth", { username, password });
-        const token = response.data.token;
-        setToken(token);
-      } catch (error) {
-        console.error("Error getting token:", error);
-      }
-    };
-
-    getToken();
-  }, []);
-
-
   const words = [
     {
       text: "My",
@@ -59,11 +41,6 @@ export default function Home() {
     },
   ];
 
-
- 
-  
-  
-  
   return (
     <>
     <div className=" overflow-hidden">
@@ -80,7 +57,7 @@ export default function Home() {
         <div className="cursor-default">
             <Link href={"/signup"}>
             <button>
-              {token? "Logout":"signIn"}
+              sign-in
             </button>
             </Link>
           </div>
