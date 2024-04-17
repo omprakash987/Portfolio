@@ -25,15 +25,19 @@ export default function Home() {
   const words = [
     {
       text: "My",
+      className:"text-orange-500 dark:text-orange-500"
     },
     {
       text: "Name",
+      className:"text-orange-500 dark:text-orange-500"
     },
     {
       text: "Is",
+      className:"text-orange-500 dark:text-orange-500"
     },
     {
       text: "Omprakash",
+      className:"text-orange-500 dark:text-orange-500"
     },
     {
       text: "Parewa.",
@@ -83,7 +87,7 @@ export default function Home() {
     </CardContainer>
         </div>
 
-        <div className="ml-8 font-mono">
+        <div className="ml-8 font-mono mr-8">
          
           <HeroHighlight>
       <motion.h1
@@ -110,7 +114,7 @@ export default function Home() {
     </HeroHighlight>
             
          
-          <p className="text-white text-4xl mr-8 font-mono flex flex-wrap overflow-hidden md:sm:">
+          <p className="text-white text-xl mr-8 font-mono flex flex-wrap overflow-hidden md:sm:">
             My Name is Omprakash parewa and I am a student. I learn coding to
             various levels; I love to build websites. I have been studying for
             more than 1 year now, and it is my passion to develop websites.
