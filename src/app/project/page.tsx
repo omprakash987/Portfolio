@@ -5,7 +5,7 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { cn } from "@/app/utils/cn";
-import { DirectionAwareHover } from "@/app/components/ui/direction-aware-hover.tsx";
+import { DirectionAwareHover } from "@/app/components/ui/direction-aware-hover";
 
 export default function DirectionAwareHoverDemo() {
   const imageUrl =
