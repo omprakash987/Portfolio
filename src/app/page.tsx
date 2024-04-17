@@ -16,9 +16,51 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { CardBody, CardContainer, CardItem } from "@/app/components/ui/3d-card";
 
+import { motion } from "framer-motion";
+import { HeroHighlight, Highlight } from "@/app/components/ui/hero-highlight";
+import { TypewriterEffectSmooth } from '@/app/components/ui/typewriter-effect'
 
 
 export default function Home() { 
+  const [token, setToken] = useState("");
+
+
+  useEffect(() => {
+    const getToken = async () => {
+      try {
+        const response = await axios.post("/api/auth", { username, password });
+        const token = response.data.token;
+        setToken(token);
+      } catch (error) {
+        console.error("Error getting token:", error);
+      }
+    };
+
+    getToken();
+  }, []);
+
+
+  const words = [
+    {
+      text: "My",
+    },
+    {
+      text: "Name",
+    },
+    {
+      text: "Is",
+    },
+    {
+      text: "Omprakash",
+    },
+    {
+      text: "Parewa.",
+      className: "text-blue-500 dark:text-blue-500",
+    },
+  ];
+
+
+ 
   
   
   
@@ -31,13 +73,15 @@ export default function Home() {
         fill="white"
       />
       <div className=" overflow-hidden  bg-black">
-        <div className=" flex  justify-between ...">
-          <h1 className="font-mono text-white text-4xl  mt-8 ml-8 mb-8 flex">
-            Omprakash Parewa
+        <div className=" flex  justify-between ... ">
+          <h1 className="font-mono text-white text-4xl  mt-8 ml-8 mb-8 flex sm:*:text-4xl">
+          <TypewriterEffectSmooth words={words} />
           </h1>
         <div className="cursor-default">
             <Link href={"/signup"}>
-            <button>signup</button>
+            <button>
+              {token? "Logout":"signIn"}
+            </button>
             </Link>
           </div>
             
@@ -63,10 +107,33 @@ export default function Home() {
         </div>
 
         <div className="ml-8 font-mono">
-          <h2 className="text-white mb-8 font-mono">
-            Welcome to Home page {"😎"}
-          </h2>
-          <p className="text-white text-lg mr-8 font-mono">
+         
+          <HeroHighlight>
+      <motion.h1
+        initial={{
+          opacity: 0,
+          y: 20,
+        }}
+        animate={{
+          opacity: 1,
+          y: [20, -5, 0],
+        }}
+        transition={{
+          duration: 0.5,
+          ease: [0.4, 0.0, 0.2, 1],
+        }}
+        className="text-2xl px-4 md:text-4xl lg:text-5xl font-bold text-neutral-700 dark:text-white max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto "
+      >
+        
+        <Highlight className="text-black dark:text-white">
+        Welcome to Home page {"😎"}
+        </Highlight>
+       
+      </motion.h1>
+    </HeroHighlight>
+            
+         
+          <p className="text-white text-4xl mr-8 font-mono flex flex-wrap overflow-hidden md:sm:">
             My Name is Omprakash parewa and I am a student. I learn coding to
             various levels; I love to build websites. I have been studying for
             more than 1 year now, and it is my passion to develop websites.
@@ -114,6 +181,11 @@ export default function Home() {
            <div className="cursor-default m-2">
             <Link href={"/project"}>
             <button className=" cursor-default">project</button>
+            </Link>
+          </div>
+          <div className="cursor-default m-2">
+            <Link href={"/blogs"}>
+            <button className=" cursor-default">Blogs</button>
             </Link>
           </div>
           </div>

@@ -1,6 +1,7 @@
 
 
 import mongoose from 'mongoose'
+import { type } from 'os';
 
 
 
@@ -17,7 +18,20 @@ const userSchema = new mongoose.Schema({
     password:{
         type:String, 
         require:true, 
-    }
+    },
+    isVerified:{
+        type:Boolean,
+        default:false
+    },
+    isAdmin:{
+        type:Boolean,
+        default:false
+    },
+    forgotPasswordToken:String,
+    forgotPasswordTokenExpiry:Date,
+    verifyToken:String,
+    verifyTokenExpiry:Date,
+    
 
 },{timestamps: true}) ; 
 
